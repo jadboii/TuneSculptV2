@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+    /* colors */
+    --accent: #959e67;
+    --primary: #83907a;
+    --secondary: #191c17;
+    --background-c: #0a0b09;
+
+    /* font styles */
+    --F-color: #fdfdfc;
+    --heading-Fsize: 2em;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-c); /* Using custom property for background color */
+    color: var(--F-color); /* Using custom property for text color */
+}
+
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-box {
+    background: var(--F-color); /* Using custom property for box background */
+    padding: 20px 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.connect-btn {
+    background-color: var(--accent); /* Using custom property for button color */
+    color: var(--F-color);
+    border: none;
+    padding: 10px 30px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
+
+.register-link {
+    font-size: 14px;
+    color: var(--secondary); /* Using custom property for text color */
+}
+
+.register-link a {
+    color: var(--primary); /* Using custom property for link color */
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}

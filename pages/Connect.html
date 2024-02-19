@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect to Spotify</title>
+    <link rel="stylesheet" href="/tunesc-vs/styles/connect.css">
+    
+</head>
+<body>
+    <div class="centered-container">
+        <div class="login-box">
+            <button class="connect-btn" onclick="authorizeSpot()">Connect to Spotify</button>
+            <p class="register-link">Don't have account? <a href="#">Register to Spotify now!</a></p>
+        </div>
+    </div>
+
+    <!-- Spotify and Firebase scripts -->
+    <script src="/tunesc-vs/components/spot.js"></script>
+    <script src="/tunesc-vs/components/spotProfile.js"></script>
+    <script type="module" src="/tunesc-vs/auth/signin.js"></script>
+
+    <script>
+        // The JavaScript function authorizeSpot() will be defined in /tunesc-vs/components/spot.js
+        function onPageLoad() {
+            // This function can handle any additional page load events
+        }
+
+        // Additional JavaScript code for user credentials and sign out functionality can be added here if needed
+    </script>
+</body>
+</html>

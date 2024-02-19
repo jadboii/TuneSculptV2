@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- confirm css -->
+    <link rel="stylesheet" href="/tunesc-vs/styles/confirm.css" />
+    <link rel="stylesheet" href="/tunesc-vs/styles/dashboard.css" />
+    <link rel="stylesheet" href="/tunesc-vs/styles/settings.css" />
+    <title>Settings</title>
+    <!-- firebase -->
+    <script type="module" src="/tunesc-vs/auth/signin.js"></script>
+    <script type="module" src="/tunesc-vs/auth/signup.js"></script>
+    <!-- js scripts -->
+    <script src="/tunesc-vs/components/spot.js"></script>
+    <script src="/tunesc-vs/auth/signout.js"></script>
+    <script src="/tunesc-vs/components/spotProfile.js"></script>
+    <script type="module" src="/tunesc-vs/components/accountDeletion.js"></script>
+    <script>
+      // Initialize the token extraction process when the window is fully loaded
+      window.onload = function() {
+      // This function should exist in moodPlaylistGenerator.js
+      initializeApp();
+      };
+    </script>
+  </head>
+  <body>
+
+    <!-- sidebar -->
+
+    <div class="sidebar">
+      <div class="logo"></div>
+      <ul class="menu">
+        <li >
+          <a href="Dashboard.html">
+            <i class="fa-solid fa-chess-board"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="active">
+          <a href="Settings.html">
+            <i class="fa-solid fa-toolbox"></i>
+            <span>Settings</span>
+          </a>
+        </li>
+        <li class="logout" id="SignoutBtn">
+          <a href="#">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="main--content">
+      <div class="header--wrapper">
+        <div class="header--title">
+          <span>Primary</span>
+          <h2>Settings</h2>
+        </div>
+        <div class="user--info">
+          <div class="user"></div>
+          <script>
+            const userInfo = JSON.parse(sessionStorage.getItem("user-info"));
+            if (userInfo && userInfo.name) {
+              const userNameElement = document.querySelector(".user");
+              if (userNameElement) {
+                userNameElement.textContent = `${userInfo.name}`;
+              }
+            }
+          </script>
+          <!-- lagay galing firebase yung user image or sa spotify -->
+          <!-- <img id="spot_picture" alt="Spotify Profile Picture" /> -->
+        </div>
+      </div>
+      <!-- Account Deletion Section -->
+      <div class="account-deletion-container">
+        <h2>Delete Account</h2>
+        <p>Please be aware that deleting your account is irreversible. You will lose access to your data and all associated services.</p>
+        <button id="delete-account-btn" class="btn delete-account-button">Delete My Account</button>
+      </div>
+    </div>
+
+    <!-- fontawesome icons -->
+    
+    <script
+      src="https://kit.fontawesome.com/64d29af423.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/tunesc-vs/styles/dashboard.css" />
+    <title>Dashboard</title>
+    <script src="/tunesc-vs/components/spot.js"></script>
+    <script src="/tunesc-vs/auth/signout.js"></script>
+    <script src="/tunesc-vs/components/spotProfile.js"></script>
+    <script>
+      // Initialize the token extraction process when the window is fully loaded
+      window.onload = function () {
+        // This function should exist in moodPlaylistGenerator.js
+        initializeApp();
+      };
+    </script>
+    <script src="/tunesc-vs/components/moodPlaylistGenerator.js"></script>
+  </head>
+  <body>
+    <!-- dito mag reredirect yung user after login -->
+
+    <!-- sidebar -->
+
+    <div class="sidebar">
+      <div class="logo"></div>
+      <ul class="menu">
+        <li class="active">
+          <a href="Dashboard.html">
+            <i class="fa-solid fa-chess-board"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="Settings.html">
+            <i class="fa-solid fa-toolbox"></i>
+            <span>Settings</span>
+          </a>
+        </li>
+        <li class="logout" id="SignoutBtn">
+          <a href="#">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="main--content">
+      <div class="header--wrapper">
+        <div class="header--title">
+          <span>Welcome to your</span>
+          <h2 class="get--user-name">Dashboard</h2>
+        </div>
+        <h2 class="user"></h2>
+      </div>
+      <!-- display the name registered from firebase -->
+      <script>
+        const userInfo = JSON.parse(sessionStorage.getItem("user-info"));
+        if (userInfo && userInfo.name) {
+          const userNameElement = document.querySelector(".user");
+          if (userNameElement) {
+            userNameElement.textContent = `${userInfo.name}`;
+          }
+        }
+      </script>
+      <!-- Mood Selection Dropdown -->
+      <div>
+        <form id="moodForm">
+          <label for="moodDropdown">Select your mood:</label>
+          <select id="moodDropdown" name="moods">
+            <option value="Happy">Happy</option>
+            <option value="Sad">Sad</option>
+            <option value="Energetic">Energetic</option>
+            <option value="Calm">Calm</option>
+            <option value="Rage">Rage</option>
+            <!-- ... other options ... -->
+          </select>
+          <button type="submit" class="btn btn-generate">
+            Generate Playlist
+          </button>
+        </form>
+      </div>
+        <div class="generate-button">
+          <a id="listenOnSpotifyBtn" target=”_blank” class="btn btn-listen" style="display: none" href="open.spotify.com">
+            Listen on Spotify</a>
+        </div>
+
+
+      <!-- Playlists will be added here!! -->
+      <div id="trackListContainer"></div>
+    </div>
+
+    <!-- firebase -->
+    <script type="module" src="/tunesc-vs/auth/signin.js"></script>
+    <script type="module" src="/tunesc-vs/auth/signup.js"></script>
+
+    <!-- fontawesome icons -->
+
+    <script
+      src="https://kit.fontawesome.com/64d29af423.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
