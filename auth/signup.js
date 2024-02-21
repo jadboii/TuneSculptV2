@@ -15,13 +15,14 @@ import {
 // Your web app's Firebase configuration
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDZ2X6a_hSxKdTbbj20WTztJx1YGv8q5k8",
-  authDomain: "tunesc-25041.firebaseapp.com",
-  databaseURL: "https://tunesc-25041-default-rtdb.firebaseio.com",
-  projectId: "tunesc-25041",
-  storageBucket: "tunesc-25041.appspot.com",
-  messagingSenderId: "78861021693",
-  appId: "1:78861021693:web:21177637753316c7b72994",
+  apiKey: "AIzaSyA4feQcdAThIbE_RD78jk2TjcwIggh0oT8",
+  authDomain: "tunesc-f096a.firebaseapp.com",
+  databaseURL: "https://tunesc-f096a-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "tunesc-f096a",
+  storageBucket: "tunesc-f096a.appspot.com",
+  messagingSenderId: "325789524945",
+  appId: "1:325789524945:web:452aa57a09d83fc978f6f0",
+  measurementId: "G-6V8SN7DF1E"
 };
 
 // Initialize Firebase
