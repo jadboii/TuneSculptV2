@@ -12,6 +12,7 @@ import {
   signInWithEmailAndPassword,
 } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
 
+//from firebase new profile from my end
 const firebaseConfig = {
   apiKey: "AIzaSyA4feQcdAThIbE_RD78jk2TjcwIggh0oT8",
   authDomain: "tunesc-f096a.firebaseapp.com",
