@@ -202,8 +202,6 @@ body {
   margin: 20px;
   padding: 15px;
   border-radius: 8px;
-  background-color: var(--background-c);
-  color: var(--F-color);
 }
 
 .track-info {

@@ -116,6 +116,7 @@ function generatePlaylistForMood(mood) {
         createOrUpdatePlaylist(userId, trackUris)
           .then(playlistId => {
             showListenOnSpotifyButton(playlistId);
+            showSpotifyPlaylistWidget(playlistId); // New line
           });
       } else {
         alert('No tracks found for this mood. Please try a different mood.');
@@ -148,17 +149,38 @@ function showListenOnSpotifyButton(playlistId) {
   }
 }
 
+function showSpotifyPlaylistWidget(playlistId) {
+  const widgetContainer = document.getElementById('trackListContainer'); // Make sure this exists in your HTML
+  widgetContainer.innerHTML = ''; // Clear existing widget
+
+  const iframe = document.createElement('iframe');
+  iframe.title = "Spotify Embed: Recommendation Playlist";
+  iframe.src = `https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator&theme=0`;
+  iframe.style.width = '100%';
+  iframe.style.height = '100%';
+  iframe.style.minHeight = '360px';
+  iframe.frameBorder = '0';
+  iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+  iframe.loading = 'lazy';
+
+  widgetContainer.appendChild(iframe);
+}
+
 
 function createOrUpdatePlaylist(userId, trackUris) {
   return createPlaylist(userId)
     .then(playlistId => addTracksToPlaylist(userId, playlistId, trackUris))
+    .then(playlistId => {
+      showSpotifyPlaylistWidget(playlistId);
+      return playlistId;
+    })
     .catch(error => {
       console.error('Error creating or updating playlist:', error);
     });
 }
 
 function createPlaylist(userId) {
-  const url = `https://api.spotify.com/v1/users/${userId}/playlists`;
+  const url = `https://api.spotify.com/v1/users/${userId}/playlists`; 
 
   return fetch(url, {
     method: 'POST',
@@ -218,4 +240,3 @@ const userId = fetchSpotifyUserID;
 
 
 createOrUpdatePlaylist(userId, trackUris);
-

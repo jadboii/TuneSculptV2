@@ -1,5 +1,5 @@
 // spot.js content
-const client_id = "fb5042f5e08e4d948bf4c9685c66543c";
+const client_id = "fc87c008d7bc4e80b5e046475d06a6b3";
 const redirect_uri = "http://127.0.0.1:5500/pages/Dashboard.html";
 const AUTHORIZE = "https://accounts.spotify.com/authorize";
 // const scopes = "user-read-private user-read-email playlist-modify-public ugc-image-upload";
