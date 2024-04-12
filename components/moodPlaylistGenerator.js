@@ -235,6 +235,51 @@ function addTracksToPlaylist(userId, playlistId, trackUris) {
   });
 }
 
+function playlistWidget(userId, playlistId, trackUris) {
+  const url = `https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}`;
+
+  return fetch(url, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${window.access_token}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      uris: trackUris
+    })
+  })
+  .then(response => {
+    if (response.status === 403) {
+      console.error('Access forbidden. Check access token and permissions.');
+      // Handle forbidden error (e.g., try to refresh the access token)
+    } else if (!response.ok) {
+      throw new Error(`Server response status code: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(trackData => {
+    console.log('Tracks added to playlist:', trackData);
+  });
+}
+const playlistId = '0xXblagTRdu3Mw2uZXGHCK';
+const trackUris = []; // Add track URIs here
+
+playlistWidget(userId, playlistId, trackUris);
+
+const spotifyEmbed = document.createElement('iframe');
+spotifyEmbed.title = 'Spotify Embed: Recommendation Playlist';
+spotifyEmbed.src = `https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator&theme=0`;
+spotifyEmbed.width = '100%';
+spotifyEmbed.height = '100%';
+spotifyEmbed.style.minHeight = '360px';
+spotifyEmbed.frameBorder = '0';
+spotifyEmbed.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+spotifyEmbed.loading = 'lazy';
+
+// Add the iframe to the DOM
+const playlistContainer = document.getElementById('playlistContainer');
+playlistContainer.appendChild(spotifyEmbed);
+
 // Add the following lines to initiate the process
 const userId = fetchSpotifyUserID; 
 

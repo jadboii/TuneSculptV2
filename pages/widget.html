@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spotify Widget</title>
+</head>
+<body>
+    <div id="spotify-widget"></div>
+
+    <script src="path/to/widget-disp.js"></script>
+    <script>
+        // Call the function to add tracks to the playlist
+        const userId = 'your-user-id';
+        const playlistId = '0xXblagTRdu3Mw2uZXGHCK'; // Replace with your playlistId
+        const trackUris = ['spotify:track:track-id-1', 'spotify:track:track-id-2'];
+
+        // Create the Spotify widget and append it to the div
+        const spotifyWidget = createOrUpdatePlaylist(userId, playlistId, trackUris);
+        document.getElementById('spotify-widget').appendChild(spotifyWidget);
+    </script>
+</body>
+</html>

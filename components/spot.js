@@ -1,5 +1,9 @@
 // spot.js content
+<<<<<<< Updated upstream
 const client_id = "fc87c008d7bc4e80b5e046475d06a6b3";
+=======
+const client_id = "470eafb7420a4c82ae454eacb73bf812";
+>>>>>>> Stashed changes
 const redirect_uri = "http://127.0.0.1:5500/pages/Dashboard.html";
 const AUTHORIZE = "https://accounts.spotify.com/authorize";
 // const scopes = "user-read-private user-read-email playlist-modify-public ugc-image-upload";
