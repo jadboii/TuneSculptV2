@@ -167,12 +167,17 @@ function showSpotifyPlaylistWidget(playlistId) {
 }
 
 
+let generatedPlaylistId;
+
 function createOrUpdatePlaylist(userId, trackUris) {
   return createPlaylist(userId)
-    .then(playlistId => addTracksToPlaylist(userId, playlistId, trackUris))
     .then(playlistId => {
-      showSpotifyPlaylistWidget(playlistId);
-      return playlistId;
+      generatedPlaylistId = playlistId;
+      return addTracksToPlaylist(userId, playlistId, trackUris);
+    })
+    .then(() => {
+      showSpotifyPlaylistWidget(generatedPlaylistId);
+      return generatedPlaylistId;
     })
     .catch(error => {
       console.error('Error creating or updating playlist:', error);

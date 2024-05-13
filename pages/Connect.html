@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connect to Spotify</title>
     <link rel="stylesheet" href="/styles/connect.css">
+        <!-- Spotify and Firebase scripts -->
+        <script src="/components/spot.js"></script>
+        <script src="/components/spotProfile.js"></script>
+        <script type="module" src="/auth/signin.js"></script>
     
 </head>
 <body>
@@ -14,11 +18,6 @@
             <p class="register-link">Don't have account? <a href="#">Register to Spotify now!</a></p>
         </div>
     </div>
-
-    <!-- Spotify and Firebase scripts -->
-    <script src="/components/spot.js"></script>
-    <script src="/components/spotProfile.js"></script>
-    <script type="module" src="/auth/signin.js"></script>
 
     <script>
         // The JavaScript function authorizeSpot() will be defined in /tunesc-vs/components/spot.js
